@@ -9,7 +9,7 @@ CREATE TABLE Leilao (
     PrecoInicial DECIMAL(10,2) NOT NULL CHECK (PrecoInicial >= 0),
     idUsuarioCriador INTEGER NOT NULL,
     idLanceGanhador INTEGER,
-    FOREIGN KEY (idUsuarioCriador) REFERENCES Usuario (idUsuario) ON DELETE SET NULL
+    FOREIGN KEY (idUsuarioCriador) REFERENCES Usuario (idUsuario) ON DELETE CASCADE
 );
 
 ALTER TABLE Leilao
