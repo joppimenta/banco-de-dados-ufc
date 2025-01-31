@@ -7,7 +7,7 @@ CREATE TABLE Leilao (
     DataHoraInicio TIMESTAMP NOT NULL,
     DataHoraFim TIMESTAMP NOT NULL,
     PrecoInicial DECIMAL(10,2) NOT NULL CHECK (precoinicial >= 0),
-    IdusuarioCriador INTEGER NOT NULL,
+    IdUsuarioCriador INTEGER NOT NULL,
     idLanceGanhador INTEGER NULL,
     FOREIGN KEY (idUsuarioCriador) REFERENCES Usuario (idUsuario) ON DELETE SET NULL
 );
