@@ -1,7 +1,7 @@
 CREATE TABLE Lance (
     idLance SERIAL PRIMARY KEY,
     Valor DECIMAL(10,2) NOT NULL CHECK (valor > 0),
-    DataHoralance TIMESTAMP NOT NULL,
+    DataHoraLance TIMESTAMP NOT NULL,
     idUsuario INTEGER NOT NULL,
     idLeilao INTEGER NOT NULL,
     FOREIGN KEY (idUsuario) REFERENCES Usuario (idUsuario) ON DELETE SET NULL,
