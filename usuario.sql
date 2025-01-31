@@ -12,7 +12,7 @@ CREATE TABLE Usuario (
 	Rua VARCHAR(70),
 	Bairro VARCHAR(50),
 	Numero INT,
-	Complemento VARCHAR(70),
+	Complemento VARCHAR(70)
 	);
 
 INSERT INTO Usuario (Email, Senha, Nome, CPF, Tipo, Cargo, UF, Cidade, CEP, Rua, Bairro, Numero, Complemento) VALUES
