@@ -1,14 +1,14 @@
-CREATE TABLE lance (
-    idlance SERIAL PRIMARY KEY,
-    valor DECIMAL(10,2) NOT NULL CHECK (valor > 0),
-    datahoralance TIMESTAMP NOT NULL,
-    idusuario INTEGER NOT NULL,
-    idleilao INTEGER NOT NULL,
-    FOREIGN KEY (idusuario) REFERENCES usuario (idusuario) ON DELETE SET NULL,
-    FOREIGN KEY (idleilao) REFERENCES leilao (idleilao) ON DELETE SET NULL
+CREATE TABLE Lance (
+    idLance SERIAL PRIMARY KEY,
+    Valor DECIMAL(10,2) NOT NULL CHECK (valor > 0),
+    DataHoralance TIMESTAMP NOT NULL,
+    idUsuario INTEGER NOT NULL,
+    idLeilao INTEGER NOT NULL,
+    FOREIGN KEY (idUsuario) REFERENCES Usuario (idUsuario) ON DELETE SET NULL,
+    FOREIGN KEY (idLeilao) REFERENCES Leilao (idLeilao) ON DELETE SET NULL
 );
 
-INSERT INTO lance (valor, datahoralance, idusuario, idleilao)
+INSERT INTO Lance (Valor, DataHoraLance, idUsuario, idLeilao)
 VALUES
     (3600.00, '2024-01-02 12:00:00', 2, 1),
     (4700.00, '2024-01-06 16:00:00', 3, 2),
