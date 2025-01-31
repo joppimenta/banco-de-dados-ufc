@@ -21,6 +21,3 @@ VALUES
     (1900.00, '2024-01-21 17:00:00', 10, 9),
     (5000.00, '2023-12-11 14:00:00', 1, 10);
 
-ALTER TABLE Leilao
-ADD FOREIGN KEY (idLanceGanhador) REFERENCES Lance (idLance);
-
