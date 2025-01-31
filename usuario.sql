@@ -13,8 +13,8 @@ CREATE TABLE Usuario (
 	Bairro VARCHAR(50),
 	Numero INT,
 	Complemento VARCHAR(70),
-	CHECK (Tipo = 'convencional' OR (Rua IS NULL AND Bairro IS NULL AND Numero IS NULL AND CEP IS NULL AND Cidade IS NULL AND UF IS NULL))
-)
+	CHECK (Tipo = 'convencional' OR (Rua IS NOT DISTINCT FROM NULL AND Bairro IS NOT DISTINCT FROM NULL AND Numero IS NOT DISTINCT FROM NULL AND CEP IS NOT DISTINCT FROM NULL AND Cidade IS NOT DISTINCT FROM NULL AND UF IS NOT DISTINCT FROM NULL))
+);
 
 INSERT INTO Usuario (Email, Senha, Nome, CPF, Tipo, Cargo, UF, Cidade, CEP, Rua, Bairro, Numero, Complemento) VALUES
 ('marcelo.silva@email.com', 'Marcelo@123', 'Marcelo Silva', '12345678901', 'admin', 'geral', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
