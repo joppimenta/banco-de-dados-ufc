@@ -4,8 +4,8 @@ CREATE TABLE Lance (
     DataHoraLance TIMESTAMP NOT NULL,
     idUsuario INTEGER NOT NULL,
     idLeilao INTEGER NOT NULL,
-    FOREIGN KEY (idUsuario) REFERENCES Usuario (idUsuario) ON DELETE SET NULL,
-    FOREIGN KEY (idLeilao) REFERENCES Leilao (idLeilao) ON DELETE SET NULL
+    FOREIGN KEY (idUsuario) REFERENCES Usuario (idUsuario) ON DELETE CASCADE,
+    FOREIGN KEY (idLeilao) REFERENCES Leilao (idLeilao) ON DELETE CASCADE
 );
 
 INSERT INTO Lance (Valor, DataHoraLance, idUsuario, idLeilao)
