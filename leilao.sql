@@ -1,21 +1,21 @@
-CREATE TABLE leilao (
-    idleilao SERIAL PRIMARY KEY,
-    nomeproduto VARCHAR(100) NOT NULL,
-    descricao TEXT,
-    status VARCHAR(20) NOT NULL,
-    estado VARCHAR(20) NOT NULL,
-    datahorainicio TIMESTAMP NOT NULL,
-    datahorafim TIMESTAMP NOT NULL,
-    precoinicial DECIMAL(10,2) NOT NULL CHECK (precoinicial >= 0),
-    idusuariocriador INTEGER NOT NULL,
-    idlanceganhador INTEGER,
-    FOREIGN KEY (idusuariocriador) REFERENCES usuario (idusuario) ON DELETE SET NULL
+CREATE TABLE Leilao (
+    idLeilao SERIAL PRIMARY KEY,
+    NomeProduto VARCHAR(100) NOT NULL,
+    Descricao TEXT,
+    Status VARCHAR(20) NOT NULL,
+    Estado VARCHAR(20) NOT NULL,
+    DataHoraInicio TIMESTAMP NOT NULL,
+    DataHoraFim TIMESTAMP NOT NULL,
+    PrecoInicial DECIMAL(10,2) NOT NULL CHECK (precoinicial >= 0),
+    IdusuarioCriador INTEGER NOT NULL,
+    idLanceGanhador INTEGER NULL,
+    FOREIGN KEY (idUsuarioCriador) REFERENCES Usuario (idUsuario) ON DELETE SET NULL
 );
 
-ALTER TABLE leilao
-ADD FOREIGN KEY (idlanceganhador) REFERENCES lance (idlance);
+ALTER TABLE Leilao
+ADD FOREIGN KEY (idLanceGanhador) REFERENCES Lance (idLance);
 
-INSERT INTO leilao (nomeproduto, descricao, status, estado, datahorainicio, datahorafim, precoinicial, idusuariocriador)
+INSERT INTO Leilao (NomeProduto, Descricao, Status, Estado, DataHoraInicio, DataHoraFim, PrecoInicial, idUsuarioCriador)
 VALUES
     ('iPhone 13', 'Celular Apple iPhone 13, 128GB, Azul', 'Aberto', 'Novo', '2024-01-01 10:00:00', '2024-02-01 10:00:00', 3500.00, 1),
     ('PlayStation 5', 'Console Sony PS5, Edição Digital', 'Aberto', 'Novo', '2024-01-05 15:00:00', '2024-02-05 15:00:00', 4500.00, 2),
