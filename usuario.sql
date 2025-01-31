@@ -4,7 +4,7 @@ CREATE TABLE Usuario (
 	Senha VARCHAR(80) NOT NULL,
 	Nome VARCHAR(80) NOT NULL,
 	CPF CHAR(11) NOT NULL UNIQUE,
-	Tipo VARCHAR(20) CHECK (Tipo IN ('admin', 'convencional')),
+	Tipo VARCHAR(20) NOT NULL CHECK (Tipo IN ('admin', 'convencional')),
 	Cargo VARCHAR(20),
 	UF CHAR(2),
 	Cidade VARCHAR(50),
