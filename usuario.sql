@@ -23,7 +23,7 @@ INSERT INTO Usuario (Email, Senha, Nome, CPF, Tipo, Cargo, UF, Cidade, CEP, Rua,
 ('camila.rodrigues@email.com', 'Camila@321', 'Camila Rodrigues', '45678901234', 'convencional', NULL, 'RS', 'Porto Alegre', '90010000', 'Rua dos Andradas', 'Centro Histórico', '800', NULL),
 ('gabriel.souza@email.com', 'Gabriel@654', 'Gabriel Souza', '56789012345', 'convencional', NULL, 'BA', 'Salvador', '40020030', 'Av. Sete de Setembro', 'Campo Grande', '300', 'Bloco B'),
 ('juliana.lima@email.com', 'Juliana@987', 'Juliana Lima', '67890123456', 'convencional', NULL, 'PR', 'Curitiba', '80010020', 'Rua XV de Novembro', 'Centro', '1200', 'Casa 5'),
-('rafael.martins@email.com', 'Rafael@159', 'Rafael Martins', '78901234567', 'convencional', NULL,  'moderador', 'CE', 'Fortaleza', '60115000', 'Av. Beira Mar', 'Meireles', '450', NULL),
+('rafael.martins@email.com', 'Rafael@159', 'Rafael Martins', '78901234567', 'convencional', NULL, 'CE', 'Fortaleza', '60115000', 'Av. Beira Mar', 'Meireles', '450', NULL),
 ('amanda.costa@email.com', 'Amanda@753', 'Amanda Costa', '89012345678', 'convencional', NULL, 'PE', 'Recife', '50010030', 'Rua da Aurora', 'Boa Vista', '900', NULL),
 ('fernando.alves@email.com', 'Fernando@852', 'Fernando Alves', '90123456789', 'convencional', NULL, 'SC', 'Florianópolis', '88010030', 'Av. Hercílio Luz', 'Centro', '100', NULL),
 ('beatriz.santos@email.com', 'Beatriz@741', 'Beatriz Santos', '01234567890', 'convencional', NULL, 'GO', 'Goiânia', '74000000', 'Rua 9', 'Setor Oeste', '350', 'Apto 401');
