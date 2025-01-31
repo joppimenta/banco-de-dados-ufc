@@ -13,7 +13,7 @@ CREATE TABLE Usuario (
 	Bairro VARCHAR(50),
 	Numero INT,
 	Complemento VARCHAR(70),
-	CHECK (Tipo = 'Convencional' OR (Rua IS NULL AND Bairro IS NULL AND Numero IS NULL AND CEP IS NULL AND Cidade IS NULL AND UF IS NULL))
+	CHECK (Tipo = 'convencional' OR (Rua IS NULL AND Bairro IS NULL AND Numero IS NULL AND CEP IS NULL AND Cidade IS NULL AND UF IS NULL))
 )
 
 INSERT INTO Usuario (Email, Senha, Nome, CPF, Tipo, Cargo, UF, Cidade, CEP, Rua, Bairro, Numero, Complemento) VALUES
