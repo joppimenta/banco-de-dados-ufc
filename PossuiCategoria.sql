@@ -14,6 +14,6 @@ INSERT INTO PossuiCategoria (idLeilao, idCategoria) VALUES
     (5, 2),  -- Bicicleta Aro 29 → Esportes e Lazer
     (6, 1),  -- Relógio Smartwatch → Eletrônicos
     (7, 1),  -- Fone de Ouvido Bluetooth → Eletrônicos
-    (8, 6),  -- Câmera DSLR Canon → Fotografia e Filmagem
+    (8, 11),  -- Câmera DSLR Canon → Fotografia e Filmagem
     (9, 5),  -- Tablet Samsung → Eletrodomésticos
-    (10, 3); -- Console Xbox Series X → Jogos e Consoles
+    (10, 6); -- Console Xbox Series X → Jogos e Consoles
