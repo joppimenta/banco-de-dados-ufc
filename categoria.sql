@@ -10,8 +10,9 @@ INSERT INTO Categoria (Nome, Descricao) VALUES
     ('Automóveis', 'Carros, motos e veículos de diferentes tipos.'),
     ('Imóveis', 'Casas, apartamentos, terrenos e outros tipos de propriedades.'),
     ('Esportes e Lazer', 'Artigos esportivos, bicicletas, equipamentos de academia e lazer.'),
-    ('Colecionáveis', 'Itens raros e de coleção, como moedas, selos e action figures.'),
+    ('Jogos e Consoles', 'Consoles, videogames e acessórios.'),
     ('Móveis e Decoração', 'Móveis para casa e escritório, além de artigos de decoração.'),
     ('Brinquedos', 'Jogos, brinquedos infantis e educativos.'),
     ('Instrumentos Musicais', 'Guitarras, pianos, violinos e outros instrumentos musicais.'),
-    ('Eletrodomésticos', 'Geladeiras, fogões, máquinas de lavar e outros aparelhos domésticos.');
+    ('Eletrodomésticos', 'Geladeiras, fogões, máquinas de lavar e outros aparelhos domésticos.'),
+    ('Fotografia e Filmagem', 'Câmeras, drones, lentes e acessórios.');
