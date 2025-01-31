@@ -7,7 +7,6 @@ FOREIGN KEY(idCategoria) REFERENCES Categoria (idCategoria)
 ); 
 
 INSERT INTO PossuiCategoria (idLeilao, idCategoria) VALUES
-INSERT INTO PossuiCategoria (idLeilao, idCategoria) VALUES
     (1, 1),  -- iPhone 13 → Eletrônicos
     (2, 1),  -- PlayStation 5 → Eletrônicos
     (3, 5),  -- Smart TV 55" → Eletrodomésticos
