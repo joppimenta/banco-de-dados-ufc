@@ -1,6 +1,6 @@
 CREATE TABLE Lance (
     idLance SERIAL PRIMARY KEY,
-    Valor DECIMAL(10,2) NOT NULL CHECK (valor > 0),
+    Valor DECIMAL(10,2) NOT NULL CHECK (Valor > 0),
     DataHoraLance TIMESTAMP NOT NULL,
     idUsuario INTEGER NOT NULL,
     idLeilao INTEGER NOT NULL,
