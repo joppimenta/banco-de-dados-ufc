@@ -8,8 +8,12 @@ CREATE TABLE Leilao (
     DataHoraFim TIMESTAMP NOT NULL,
     PrecoInicial DECIMAL(10,2) NOT NULL CHECK (PrecoInicial >= 0),
     idUsuarioCriador INTEGER NOT NULL,
+    idLanceGanhador INTERGER NOT NULL,
     FOREIGN KEY (idUsuarioCriador) REFERENCES Usuario (idUsuario) ON DELETE SET NULL
 );
+
+ALTER TABLE Leilao
+ADD FOREIGN KEY (idLanceGanhador) REFERENCES Lance (idLance);
 
 
 INSERT INTO Leilao (NomeProduto, Descricao, Status, Estado, DataHoraInicio, DataHoraFim, PrecoInicial, idUsuarioCriador)
