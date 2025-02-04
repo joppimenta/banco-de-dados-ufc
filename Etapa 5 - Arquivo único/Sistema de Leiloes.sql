@@ -148,7 +148,7 @@ INSERT INTO PossuiCategoria (idLeilao, idCategoria) VALUES
     (6, 1),  
     (7, 1),  
     (8, 11),  
-    (9, 11),  
+    (9, 1),  
     (10, 6); 
     
 -- Inserção de dados na tabela FormaDePagamento 
