@@ -1,4 +1,4 @@
--- Criar tabela Usuario primeiro
+-- Criação da tabela Usuario
 CREATE TABLE Usuario (
 	idUsuario SERIAL PRIMARY KEY,
 	Email VARCHAR(80) NOT NULL UNIQUE,
@@ -16,7 +16,7 @@ CREATE TABLE Usuario (
 	Complemento VARCHAR(70)
 	);
     
--- Criar tabela Leilao sem a foreign key para idLanceGanhador
+-- Criação da tabela Leilao sem a foreign key para idLanceGanhador (Lance será criado depois).
 CREATE TABLE Leilao (
     idLeilao SERIAL PRIMARY KEY,
     NomeProduto VARCHAR(100) NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE Leilao (
     FOREIGN KEY (idUsuarioCriador) REFERENCES Usuario (idUsuario) ON DELETE CASCADE
 );
 
--- Criar tabela Lance antes de adicionar a FK em Leilao
+-- Criação da tabela Lance antes de adicionar a FK em Leilao
 CREATE TABLE Lance (
     idLance SERIAL PRIMARY KEY,
     Valor DECIMAL(10,2) NOT NULL CHECK (Valor > 0),
@@ -46,14 +46,14 @@ CREATE TABLE Lance (
 ALTER TABLE Leilao
 ADD FOREIGN KEY (idLanceGanhador) REFERENCES Lance (idLance);
 
--- Criar tabela Categoria
+-- Criação da tabela Categoria
 CREATE TABLE Categoria (
     idCategoria SERIAL PRIMARY KEY,
     Nome VARCHAR(100) NOT NULL UNIQUE,
     Descricao TEXT
 );
 
--- Criar tabela PossuiCategoria (relação entre Leilão e Categoria)
+-- Criação da tabela PossuiCategoria (relação entre Leilão e Categoria)
 CREATE TABLE PossuiCategoria(
 idLeilao INTEGER NOT NULL,
 idCategoria INTEGER NOT NULL,
@@ -62,7 +62,7 @@ FOREIGN KEY(idLeilao) REFERENCES Leilao (idLeilao),
 FOREIGN KEY(idCategoria) REFERENCES Categoria (idCategoria)
 ); 
 
--- Criar tabela FormaDePagamento (formas aceitas para cada leilão)
+-- Criação da tabela FormaDePagamento (formas aceitas para cada leilão)
 CREATE TABLE FormaDePagamento(
 idLeilao INTEGER NOT NULL,
 NomeFormaDePagamento VARCHAR(30) NOT NULL,
@@ -70,7 +70,7 @@ PRIMARY KEY(idLeilao, NomeFormaDePagamento),
 FOREIGN KEY(idLeilao) REFERENCES Leilao (idLeilao) ON DELETE CASCADE
 );
 
--- Criar tabela Avaliacao
+-- Criação da tabela Avaliacao
 CREATE TABLE Avaliacao (
     idAvaliacao SERIAL PRIMARY KEY,
     Comentario TEXT,
@@ -94,14 +94,16 @@ INSERT INTO Usuario (Email, Senha, Nome, CPF, Tipo, Cargo, UF, Cidade, CEP, Rua,
 ('rafael.martins@email.com', 'Rafael@159', 'Rafael Martins', '78901234567', 'convencional', NULL, 'CE', 'Fortaleza', '60115000', 'Av. Beira Mar', 'Meireles', '450', NULL),
 ('amanda.costa@email.com', 'Amanda@753', 'Amanda Costa', '89012345678', 'convencional', NULL, 'PE', 'Recife', '50010030', 'Rua da Aurora', 'Boa Vista', '900', NULL),
 ('fernando.alves@email.com', 'Fernando@852', 'Fernando Alves', '90123456789', 'convencional', NULL, 'SC', 'Florianópolis', '88010030', 'Av. Hercílio Luz', 'Centro', '100', NULL),
-('beatriz.santos@email.com', 'Beatriz@741', 'Beatriz Santos', '01234567890', 'convencional', NULL, 'GO', 'Goiânia', '74000000', 'Rua 9', 'Setor Oeste', '350', 'Apto 401');
+('beatriz.santos@email.com', 'Beatriz@741', 'Beatriz Santos', '01234567890', 'convencional', NULL, 'GO', 'Goiânia', '74000000', 'Rua 9', 'Setor Oeste', '350', 'Apto 401'),
+('joao.pereira@email.com', 'Joao@123', 'João Pereira', '11223344556', 'convencional', NULL, 'SP', 'São Paulo', '01000000', 'Rua Augusta', 'Centro', 123, 'Apto 45'), 
+('mariana.silva@email.com', 'Mariana@789', 'Mariana Silva', '99887766554', 'convencional', NULL, 'RJ', 'Rio de Janeiro', '20000000', 'Av. Rio Branco', 'Centro', 500, NULL);
 
 -- Inserção de dados na tabela Leilao
 INSERT INTO Leilao (NomeProduto, Descricao, Status, Estado, DataHoraInicio, DataHoraFim, PrecoInicial, idUsuarioCriador) VALUES
-    ('iPhone 13', 'Celular Apple iPhone 13, 128GB, Azul', 'Aberto', 'Novo', '2024-01-01 10:00:00', '2024-02-01 10:00:00', 3500.00, 1),
-    ('PlayStation 5', 'Console Sony PS5, Edição Digital', 'Aberto', 'Novo', '2024-01-05 15:00:00', '2024-02-05 15:00:00', 4500.00, 2),
+    ('iPhone 13', 'Celular Apple iPhone 13, 128GB, Azul', 'Aberto', 'Novo', '2024-01-01 10:00:00', '2024-02-01 10:00:00', 3500.00, 11),
+    ('PlayStation 5', 'Console Sony PS5, Edição Digital', 'Aberto', 'Novo', '2024-01-05 15:00:00', '2024-02-05 15:00:00', 4500.00, 12),
     ('Smart TV 55"', 'Smart TV LED 55" 4K UHD, HDR', 'Encerrado', 'Semi-novo', '2023-12-15 12:00:00', '2024-01-15 12:00:00', 3000.00, 3),
-    ('Notebook Dell', 'Notebook Dell Inspiron, i7, 16GB RAM, 512GB SSD', 'Aberto', 'Novo', '2024-01-10 18:00:00', '2024-02-10 18:00:00', 5500.00, 4),
+    ('Notebook Dell', 'Notebook Dell Inspiron, i7, 16GB RAM, 512GB SSD', 'Aberto', 'Novo', '2024-01-10 18:00:00', '2024-02-10 18:00:00', 5500.00, 11),
     ('Bicicleta Aro 29', 'Mountain Bike Aro 29, Freios a Disco', 'Encerrado', 'Usado', '2023-12-20 09:00:00', '2024-01-20 09:00:00', 1200.00, 5),
     ('Relógio Smartwatch', 'Relógio Inteligente com Monitor Cardíaco', 'Aberto', 'Novo', '2024-01-02 08:00:00', '2024-02-02 08:00:00', 800.00, 6),
     ('Fone de Ouvido Bluetooth', 'Fone de Ouvido Bluetooth com Cancelamento de Ruído', 'Aberto', 'Novo', '2024-01-07 11:00:00', '2024-02-07 11:00:00', 600.00, 7),
@@ -111,20 +113,20 @@ INSERT INTO Leilao (NomeProduto, Descricao, Status, Estado, DataHoraInicio, Data
     
     -- Inserção de dados na tabela Lance
 INSERT INTO Lance (Valor, DataHoraLance, idUsuario, idLeilao) VALUES
-    (3600.00, '2024-01-02 12:00:00', 2, 1),
+    (3600.00, '2024-01-02 12:00:00', 12, 1),
     (4700.00, '2024-01-06 16:00:00', 3, 2),
     (3100.00, '2023-12-16 13:00:00', 4, 3),
-    (5700.00, '2024-01-11 19:00:00', 5, 4),
+    (5700.00, '2024-01-11 19:00:00', 10, 4),
     (1300.00, '2023-12-21 10:00:00', 6, 5),
     (850.00, '2024-01-03 09:00:00', 7, 6),
-    (620.00, '2024-01-08 12:00:00', 8, 7),
+    (620.00, '2024-01-08 12:00:00', 6, 7),
     (2600.00, '2024-01-16 15:00:00', 9, 8),
     (1900.00, '2024-01-21 17:00:00', 10, 9),
-    (5000.00, '2023-12-11 14:00:00', 1, 10);
+    (5000.00, '2023-12-11 14:00:00', 11, 10);
     
 -- Inserção de dados na tabela Categoria
 INSERT INTO Categoria (Nome, Descricao) VALUES
- ('Eletrônicos', 'Dispositivos eletrônicos como celulares, computadores e acessórios.'),
+    ('Eletrônicos', 'Dispositivos eletrônicos como celulares, computadores e acessórios.'),
     ('Moda', 'Roupas, calçados, acessórios e artigos de vestuário em geral.'),
     ('Automóveis', 'Carros, motos e veículos de diferentes tipos.'),
     ('Imóveis', 'Casas, apartamentos, terrenos e outros tipos de propriedades.'),
@@ -138,23 +140,21 @@ INSERT INTO Categoria (Nome, Descricao) VALUES
 
 -- Inserção de dados na tabela PossuiCategoria
 INSERT INTO PossuiCategoria (idLeilao, idCategoria) VALUES
-	(1, 1),  -- iPhone 13 → Eletrônicos
-    (2, 1),  -- PlayStation 5 → Eletrônicos
-    (3, 10),  -- Smart TV 55" → Eletrodomésticos
-    (4, 1),  -- Notebook Dell → Eletrônicos
-    (5, 5),  -- Bicicleta Aro 29 → Esportes e Lazer
-    (6, 1),  -- Relógio Smartwatch → Eletrônicos
-    (7, 1),  -- Fone de Ouvido Bluetooth → Eletrônicos
-    (8, 11),  -- Câmera DSLR Canon → Fotografia e Filmagem
-    (9, 10),  -- Tablet Samsung → Eletrodomésticos
-    (10, 6); -- Console Xbox Series X → Jogos e Consoles
+    (1, 1), 
+    (2, 6), 
+    (3, 10), 
+    (4, 1),  
+    (5, 5), 
+    (6, 1),  
+    (7, 1),  
+    (8, 11),  
+    (9, 11),  
+    (10, 6); 
     
--- Inserção de dados na tabela FormaDePagamento
+-- Inserção de dados na tabela FormaDePagamento 
 INSERT INTO FormaDePagamento (idLeilao, NomeFormaDePagamento) VALUES
-	(1, 'Cartão de Crédito'),
-    (1, 'Boleto Bancário'),
+    (1, 'Cartão de Crédito'),
     (2, 'Pix'),
-    (2, 'Transferência Bancária'),
     (3, 'Cartão de Crédito'),
     (4, 'Pix'),
     (5, 'Boleto Bancário'),
@@ -166,13 +166,13 @@ INSERT INTO FormaDePagamento (idLeilao, NomeFormaDePagamento) VALUES
     
 -- Inserção de dados na tabela Avaliacao
 INSERT INTO Avaliacao (Comentario, Titulo, Nota, Funcao, idUsuario, idLeilao) VALUES
-    ('Ótimo produto e vendedor confiável!', 'Muito satisfeito', 5, 'comprador', 2, 1),
+    ('Ótimo produto e vendedor confiável!', 'Muito satisfeito', 5, 'comprador', 12, 1),
     ('Entrega rápida e produto excelente.', 'Recomendo!', 4, 'comprador', 3, 2),
     ('O produto estava em bom estado, mas demorou um pouco para ser entregue.', 'Bom negócio', 3, 'comprador', 4, 3),
-    ('Ótima experiência no leilão!', 'Tudo certo!', 5, 'leiloeiro', 1, 4),
-    ('Achei o preço um pouco alto, mas o produto é de qualidade.', 'Satisfeito', 4, 'comprador', 5, 5),
-    ('O processo foi fácil e bem organizado.', 'Muito profissional', 5, 'leiloeiro', 2, 6),
+    ('Ótima experiência no leilão!', 'Tudo certo!', 5, 'leiloeiro', 11, 4),
+    ('Achei o preço um pouco alto, mas o produto é de qualidade.', 'Satisfeito', 4, 'comprador', 6, 5),
+    ('O processo foi fácil e bem organizado.', 'Muito profissional', 5, 'leiloeiro', 6, 6),
     ('Fiquei decepcionado com o tempo de entrega.', 'Demorou muito', 2, 'comprador', 6, 7),
-    ('O leilão foi bem conduzido e sem problemas.', 'Ótima organização', 5, 'leiloeiro', 3, 8),
-    ('Preço justo e negociação tranquila.', 'Muito bom!', 4, 'comprador', 9, 9),
-    ('O leiloeiro foi muito atencioso e esclareceu todas as dúvidas.', 'Excelente experiência', 5, 'leiloeiro', 4, 10);
+    ('O leilão foi bem conduzido e sem problemas.', 'Ótima organização', 5, 'leiloeiro', 8, 8),
+    ('Preço justo e negociação tranquila.', 'Muito bom!', 4, 'comprador', 10, 9),
+    ('O leiloeiro foi muito atencioso e esclareceu todas as dúvidas.', 'Excelente experiência', 5, 'comprador', 11, 10);
