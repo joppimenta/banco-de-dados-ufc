@@ -59,12 +59,20 @@ elif opcao == "Criar Leilão":
     data_fim = st.date_input("Data de Fim")
     hora_fim = st.time_input("Hora de Fim", value=datetime.today().time())
     estado = st.selectbox("Estado do produto:", ("Novo", "Semi-novo","Usado"))
+    status = st.selectbox("Status do leilão:", ("Aberto", "Encerrado"))
+    preco_inicial = st.number_input("Insira o preço inicial:")
+    id_usuario_criador = st.number_input("Insira o ID do usuário criador:")
 
     if st.button("Criar Leilão"):
         if nome_produto and descricao and data_inicio and data_fim:
             try:
-                query = load_query("select.sql")
-                df = run_query(query)
+                dt_inicio = datetime.combine(data_inicio, hora_inicio)
+                dt_fim = datetime.combine(data_fim, hora_fim)
+
+                query = load_query("criar_leilao.sql")
+                df = run_query(query, {"nome_produto": nome_produto, "descricao": descricao,
+                                       "status": status, "estado": estado, "data_hora_inicio": dt_inicio,
+                                       "data_hora_fim": dt_fim, "preco_inicial": preco_inicial, "id_usuario_criador": id_usuario_criador})
             except Exception as e:
                 st.error(f"Erro ao criar leilão: {e}")
         else:
@@ -74,7 +82,7 @@ elif opcao == "Criar Leilão":
 elif opcao == "Deletar Usuário":
     email_usuario = st.text_input("Email do Usuário a ser deletado:")
 
-    if st.button("Deletar Leilão"):
+    if st.button("Deletar Usuário"):
         if email_usuario:
             try:
                 query = load_query("deletar_usuario.sql")

@@ -1,0 +1,2 @@
+INSERT INTO Leilao (NomeProduto, Descricao, Status, Estado, DataHoraInicio, DataHoraFim, PrecoInicial, idUsuarioCriador) VALUES
+(:nome_produto, :descricao, :status, :estado, :data_hora_inicio, :data_hora_fim, :preco_inicial, :id_usuario_criador)
