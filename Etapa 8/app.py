@@ -72,14 +72,14 @@ elif opcao == "Criar Leilão":
 
 # --- Opção 3: Deletar Usuário ---
 elif opcao == "Deletar Usuário":
-    nome_usuario = st.text_input("Nome do Usuário a ser deletado:")
+    email_usuario = st.text_input("Email do Usuário a ser deletado:")
 
     if st.button("Deletar Leilão"):
-        if nome_usuario:
+        if email_usuario:
             try:
-                query = load_query("select.sql")
-                df = run_query(query)
+                query = load_query("deletar_usuario.sql")
+                df = run_query(query, {"email_usuario": email_usuario})
             except Exception as e:
                 st.error(f"Erro ao deletar usuário: {e}")
         else:
-            st.warning("Digite um nome de usuário")
+            st.warning("Digite um email válido")
